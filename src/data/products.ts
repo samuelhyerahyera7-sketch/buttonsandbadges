@@ -5,7 +5,8 @@ export type Category =
   | 'lapels'
   | 'tags'
   | 'corporate-gifts'
-  | 'stickers';
+  | 'stickers'
+  | 'signs';
 
 export interface Product {
   id: string;
@@ -219,17 +220,113 @@ export const products: Product[] = [
     isBestseller: true,
   },
   {
-    id: 'keyring',
-    name: 'Corporate Keyring',
+    id: 'keyring-standard',
+    name: 'Classic Keyring',
     category: 'corporate-gifts',
-    description: 'Premium personalised keyrings — corporate gifts that travel everywhere.',
+    description: 'Laser-engraved Trolase acrylic keyrings — affordable and fully branded.',
     longDescription:
-      'Discover our premium collection of personalised corporate keyrings that go beyond the ordinary. From sleek designs that command attention to stylish keyrings that travel everywhere, our custom accessories are the ultimate way to make your brand memorable. Available in a range of materials including Trolase acrylic, metal, and wood. Corporate gifts that don\'t just impress — they inspire.',
+      'Our Classic Keyrings are crafted from premium Trolase acrylic, laser engraved with your logo, name, or design for a clean, professional finish. Lightweight, durable, and affordable — perfect for large-quantity corporate gifting, events, and promotions. A practical branded accessory your clients and staff will actually use every day.',
     image: `${BFA}/2025/02/Standard-Front-COR002-Trolase.png`,
+    priceFrom: 45,
+    minQty: 10,
+    materials: ['Trolase', 'Plexiglas'],
+    finishes: ['Laser engraved', 'Glossy', 'Matte'],
+    isBestseller: true,
+  },
+  {
+    id: 'keyring-premium-resin',
+    name: 'Premium Resin Keyring',
+    category: 'corporate-gifts',
+    description: 'Full-colour digital print sealed under crystal-clear resin — a premium gift.',
+    longDescription:
+      'Our Premium Resin Keyrings feature a vibrant full-colour digital print sealed beneath a crystal-clear resin dome, giving each keyring a polished, three-dimensional finish that stands out. Ideal for luxury brand promotions, high-end corporate gifting, and VIP events. These keyrings make an impression that lasts long after the occasion.',
+    image: `${BFA}/2025/02/Premium-Resin-Keyring-–-COR.png`,
+    priceFrom: 75,
+    minQty: 10,
+    materials: ['Resin-coated'],
+    finishes: ['Full colour', 'Domed resin', 'Glossy'],
+    isNew: true,
+  },
+  {
+    id: 'keyring-bespoke',
+    name: 'Bespoke Metal Keyring',
+    category: 'corporate-gifts',
+    description: 'Die-cast metal keyrings for service awards, recognition, and prestige gifting.',
+    longDescription:
+      'Our Bespoke Metal Keyrings are crafted for those moments when only the finest will do. Die-cast in your chosen shape and finished in gold, silver, antique, or custom plating, these keyrings are the ultimate recognition gift — perfect for long-service awards, VIP clients, and premium brand launches. Add a presentation box for that extra-special touch.',
+    image: `${BFA}/2025/02/Bespoke-Keyring-%E2%80%93-COR.png`,
+    priceFrom: 120,
+    minQty: 5,
+    materials: ['Die-cast metal'],
+    finishes: ['Gold', 'Silver', 'Antique', 'Custom plating'],
+  },
+  {
+    id: 'keyring-wood',
+    name: 'Wood Keyring',
+    category: 'corporate-gifts',
+    description: 'Eco-friendly laser-engraved wood keyrings in Bamboo, Maple, or Oak.',
+    longDescription:
+      'Our Wood Keyrings bring natural warmth to corporate gifting. Crafted from sustainably sourced Bamboo, Maple, or Oak, each keyring is precision laser engraved with your logo or design. Lightweight, unique, and eco-conscious — perfect for green brands, nature-inspired organisations, and anyone who wants a standout gift that tells a story.',
+    image: `${BFA}/2025/02/Wood-Keyring-%E2%80%93-COR.png`,
     priceFrom: 65,
     minQty: 10,
-    materials: ['Trolase', 'Metal', 'Wood'],
-    finishes: ['Laser engraved', 'Full colour'],
+    materials: ['Bamboo', 'Maple', 'Oak'],
+    finishes: ['Laser engraved', 'Natural'],
+    isNew: true,
+  },
+  {
+    id: 'domed-stickers',
+    name: 'Domed Stickers',
+    category: 'stickers',
+    description: 'Full-colour digital print sealed under a crystal-clear resin dome.',
+    longDescription:
+      'Our Domed Stickers combine vibrant full-colour digital printing with a thick, crystal-clear resin dome — creating a striking, three-dimensional finish that commands attention. Perfect for product branding, vehicle badges, equipment labels, or promotional giveaways. Durable, weatherproof, and built to last, these stickers elevate any surface they\'re applied to.',
+    image: `${BFA}/2025/04/Bespoke.png`,
+    priceFrom: 12,
+    minQty: 50,
+    materials: ['Resin-domed'],
+    finishes: ['Full colour', 'Domed resin', 'Weatherproof'],
+    isNew: true,
+  },
+  {
+    id: 'vinyl-stickers',
+    name: 'Vinyl & Self-Adhesive Stickers',
+    category: 'stickers',
+    description: 'Durable vinyl stickers and self-adhesive labels for any application.',
+    longDescription:
+      'From product labels to vehicle graphics, our vinyl stickers and self-adhesive labels deliver bold, long-lasting results. Printed in full colour on premium vinyl stock, they\'re UV-resistant, waterproof, and designed to perform in any environment. Available in cut-to-shape, kiss-cut, or sheet format. Ideal for retail branding, packaging, events, and promotional campaigns.',
+    image: `${BFA}/2025/04/Button-badges.png`,
+    priceFrom: 8,
+    minQty: 100,
+    materials: ['Vinyl'],
+    finishes: ['Full colour', 'Gloss', 'Matte', 'UV-resistant'],
+  },
+  {
+    id: 'custom-signs',
+    name: 'Custom Signs & Signage',
+    category: 'signs',
+    description: 'Branded door signs, bathroom signs, room keys & custom office signage.',
+    longDescription:
+      'Make every door, room, and corridor speak your brand with our custom signage range. From hotel do-not-disturb signs and bathroom door plates to branded office room signs and no-smoking notices, we produce signage that is both functional and beautifully finished. Available in acrylic, metal, and wood — fully customised with your design, colours, and logo.',
+    image: `${BFA}/2025/04/Signage.png`,
+    priceFrom: 85,
+    minQty: 5,
+    materials: ['Acrylic', 'Metal', 'Wood'],
+    finishes: ['Laser engraved', 'Full colour', 'Brushed metal'],
+    isNew: true,
+  },
+  {
+    id: 'desk-nameplate',
+    name: 'Desk Nameplate',
+    category: 'signs',
+    description: 'Professional desk nameplates for offices, schools, and reception desks.',
+    longDescription:
+      'Present a polished, professional image with our custom desk nameplates. Available in classic acrylic (Trolase or Plexiglas), brushed metal, and natural wood options, each nameplate is precision laser engraved with your name, title, and company logo. Freestanding with a sturdy base — ideal for executives, receptionists, teachers, and conference tables.',
+    image: `${BFA}/2025/04/Name-Badges.png`,
+    priceFrom: 95,
+    minQty: 1,
+    materials: ['Acrylic', 'Metal', 'Wood'],
+    finishes: ['Laser engraved', 'Glossy', 'Brushed', 'Natural'],
   },
 ];
 
@@ -239,5 +336,7 @@ export const categories: { id: Category; label: string; description: string }[] 
   { id: 'button-badges', label: 'Button Badges', description: 'Pin-back badges for events & campaigns' },
   { id: 'lapels', label: 'Lapels', description: 'Classic, metal, resin, wood & bespoke lapels' },
   { id: 'tags', label: 'Conference Tags', description: 'ID tags with lanyards for events' },
-  { id: 'corporate-gifts', label: 'Corporate Gifts', description: 'Keyrings, desk plates & branded accessories' },
+  { id: 'corporate-gifts', label: 'Keyrings & Corporate Gifts', description: 'Classic, resin, wood & bespoke metal keyrings' },
+  { id: 'stickers', label: 'Stickers & Labels', description: 'Domed stickers, vinyl & self-adhesive labels' },
+  { id: 'signs', label: 'Signs & Nameplates', description: 'Custom signage, door signs & desk nameplates' },
 ];
