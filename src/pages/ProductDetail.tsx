@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useParams, Link } from 'react-router';
 import { products } from '../data/products';
-import { useQuote } from '../context/QuoteContext';
+import { useCart } from '../context/CartContext';
 import ProductCard from '../components/ProductCard';
 
 export default function ProductDetail() {
   const { id } = useParams<{ id: string }>();
   const product = products.find((p) => p.id === id);
-  const { addItem } = useQuote();
+  const { addItem } = useCart();
   const [qty, setQty] = useState(product?.minQty ?? 10);
   const [added, setAdded] = useState(false);
 
@@ -24,7 +24,7 @@ export default function ProductDetail() {
     .filter((p) => p.category === product.category && p.id !== product.id)
     .slice(0, 3);
 
-  function handleAddToQuote() {
+  function handleAddToBasket() {
     addItem(product!, qty);
     setAdded(true);
     setTimeout(() => setAdded(false), 2500);
@@ -97,15 +97,20 @@ export default function ProductDetail() {
           </div>
 
           <button
-            onClick={handleAddToQuote}
-            className={`add-to-quote-btn large${added ? ' added' : ''}`}
+            onClick={handleAddToBasket}
+            className={`add-to-cart-btn large${added ? ' added' : ''}`}
           >
-            {added ? '✓ Added to Quote Basket' : 'Add to Quote Basket'}
+            {added ? '✓ Added to Basket' : 'Add to Basket'}
           </button>
 
+          {added && (
+            <Link to="/basket" className="btn-secondary-dark" style={{ marginTop: '10px', display: 'block', textAlign: 'center' }}>
+              View Basket →
+            </Link>
+          )}
+
           <p className="detail-note">
-            Pricing shown is a guide — final pricing depends on quantity, customisation, and material selected.
-            Our team will confirm pricing when you submit your quote.
+            Pricing shown is a starting guide — final pricing is confirmed at checkout based on quantity, material, and customisation.
           </p>
         </div>
       </div>

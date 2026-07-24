@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Link, Outlet, useLocation } from 'react-router';
-import { QuoteProvider, useQuote } from '../context/QuoteContext';
-import { ClipboardList, Menu, X } from 'lucide-react';
+import { CartProvider, useCart } from '../context/CartContext';
+import { ShoppingBasket, Menu, X } from 'lucide-react';
 
 function Nav() {
-  const { totalItems } = useQuote();
+  const { totalItems } = useCart();
   const [open, setOpen] = useState(false);
   const location = useLocation();
 
@@ -38,10 +38,10 @@ function Nav() {
             );
           })}
 
-          <Link to="/quote" className="quote-link">
-            <ClipboardList size={16} />
-            Quote Basket
-            {totalItems > 0 && <span className="quote-badge">{totalItems}</span>}
+          <Link to="/basket" className="cart-link">
+            <ShoppingBasket size={16} />
+            Basket
+            {totalItems > 0 && <span className="cart-badge">{totalItems}</span>}
           </Link>
         </nav>
 
@@ -57,8 +57,8 @@ function Nav() {
               {link.label}
             </Link>
           ))}
-          <Link to="/quote" className="mobile-nav-link" onClick={() => setOpen(false)}>
-            Quote Basket {totalItems > 0 && `(${totalItems})`}
+          <Link to="/basket" className="mobile-nav-link" onClick={() => setOpen(false)}>
+            Basket {totalItems > 0 && `(${totalItems})`}
           </Link>
         </div>
       )}
@@ -74,7 +74,7 @@ function Footer() {
       <div className="footer-links">
         <Link to="/">Home</Link>
         <Link to="/shop">Products</Link>
-        <Link to="/quote">Quote Basket</Link>
+        <Link to="/basket">Basket</Link>
       </div>
       <div className="footer-links" style={{ marginTop: '8px' }}>
         <a href="#">Privacy Policy</a>
@@ -88,7 +88,7 @@ function Footer() {
 
 export default function Layout() {
   return (
-    <QuoteProvider>
+    <CartProvider>
       <div className="site-root">
         <Nav />
         <main className="site-main">
@@ -96,6 +96,6 @@ export default function Layout() {
         </main>
         <Footer />
       </div>
-    </QuoteProvider>
+    </CartProvider>
   );
 }

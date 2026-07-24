@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import type { MouseEvent } from 'react';
 import { Link } from 'react-router';
 import type { Product } from '../data/products';
-import { useQuote } from '../context/QuoteContext';
+import { useCart } from '../context/CartContext';
 
 interface Props {
   product: Product;
 }
 
 export default function ProductCard({ product }: Props) {
-  const { addItem } = useQuote();
+  const { addItem } = useCart();
   const [added, setAdded] = useState(false);
 
-  function handleAdd(e: React.MouseEvent) {
+  function handleAdd(e: MouseEvent) {
     e.preventDefault();
     addItem(product, product.minQty);
     setAdded(true);
@@ -43,9 +44,9 @@ export default function ProductCard({ product }: Props) {
           </div>
           <button
             onClick={handleAdd}
-            className={`add-to-quote-btn${added ? ' added' : ''}`}
+            className={`add-to-cart-btn${added ? ' added' : ''}`}
           >
-            {added ? 'Added!' : 'Get Quote'}
+            {added ? 'Added!' : 'Add to Basket'}
           </button>
         </div>
       </div>

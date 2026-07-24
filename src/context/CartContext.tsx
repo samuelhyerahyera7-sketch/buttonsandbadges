@@ -1,13 +1,14 @@
-import React, { createContext, useContext, useReducer } from 'react';
+import { createContext, useContext, useReducer } from 'react';
+import type { ReactNode } from 'react';
 import type { Product } from '../data/products';
 
-export interface QuoteItem {
+export interface CartItem {
   product: Product;
   quantity: number;
 }
 
-interface QuoteState {
-  items: QuoteItem[];
+interface CartState {
+  items: CartItem[];
 }
 
 type Action =
@@ -16,7 +17,7 @@ type Action =
   | { type: 'UPDATE_QTY'; productId: string; quantity: number }
   | { type: 'CLEAR' };
 
-function reducer(state: QuoteState, action: Action): QuoteState {
+function reducer(state: CartState, action: Action): CartState {
   switch (action.type) {
     case 'ADD_ITEM': {
       const existing = state.items.find((i) => i.product.id === action.product.id);
@@ -46,34 +47,38 @@ function reducer(state: QuoteState, action: Action): QuoteState {
   }
 }
 
-interface QuoteContextValue {
-  items: QuoteItem[];
+interface CartContextValue {
+  items: CartItem[];
   totalItems: number;
+  subtotal: number;
   addItem: (product: Product, quantity: number) => void;
   removeItem: (productId: string) => void;
   updateQty: (productId: string, quantity: number) => void;
   clear: () => void;
 }
 
-const QuoteContext = createContext<QuoteContextValue | null>(null);
+const CartContext = createContext<CartContextValue | null>(null);
 
-export function QuoteProvider({ children }: { children: React.ReactNode }) {
+export function CartProvider({ children }: { children: ReactNode }) {
   const [state, dispatch] = useReducer(reducer, { items: [] });
 
-  const value: QuoteContextValue = {
+  const subtotal = state.items.reduce((sum, i) => sum + i.product.priceFrom * i.quantity, 0);
+
+  const value: CartContextValue = {
     items: state.items,
     totalItems: state.items.reduce((n, i) => n + i.quantity, 0),
+    subtotal,
     addItem: (product, quantity) => dispatch({ type: 'ADD_ITEM', product, quantity }),
     removeItem: (productId) => dispatch({ type: 'REMOVE_ITEM', productId }),
     updateQty: (productId, quantity) => dispatch({ type: 'UPDATE_QTY', productId, quantity }),
     clear: () => dispatch({ type: 'CLEAR' }),
   };
 
-  return <QuoteContext.Provider value={value}>{children}</QuoteContext.Provider>;
+  return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 }
 
-export function useQuote() {
-  const ctx = useContext(QuoteContext);
-  if (!ctx) throw new Error('useQuote must be used within QuoteProvider');
+export function useCart() {
+  const ctx = useContext(CartContext);
+  if (!ctx) throw new Error('useCart must be used within CartProvider');
   return ctx;
 }
