@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { useSearchParams } from 'react-router';
 import { products, categories, type Category } from '../data/products';
 import ProductCard from '../components/ProductCard';

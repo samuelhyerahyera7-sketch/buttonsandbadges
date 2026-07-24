@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useParams, Link } from 'react-router';
 import { products } from '../data/products';
 import { useQuote } from '../context/QuoteContext';

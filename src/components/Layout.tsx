@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, Outlet, useLocation } from 'react-router';
 import { QuoteProvider, useQuote } from '../context/QuoteContext';
 import { ClipboardList, Menu, X } from 'lucide-react';
