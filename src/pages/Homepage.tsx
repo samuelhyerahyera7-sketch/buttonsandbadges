@@ -25,19 +25,6 @@ export default function Homepage() {
   return (
     <div className="homepage">
 
-      {/* HERO */}
-      <section className="hero">
-        <div className="hero-content">
-          <span className="hero-eyebrow">Premium Badges · South Africa</span>
-          <h1>Badges That Make Your <em>Brand</em> Unforgettable</h1>
-          <p>Name badges, lapel pins, button badges and corporate gifts, crafted for businesses, schools, events and organisations across South Africa.</p>
-          <div className="hero-actions">
-            <Link to="/shop" className="btn-primary">Browse All Products</Link>
-            <Link to="/shop?category=name-badges" className="btn-secondary">Name Badges</Link>
-          </div>
-        </div>
-      </section>
-
       {/* MOBILE CATEGORY CAROUSEL — shown on phones only */}
       <div className="mob-cat-wrap">
         <div className="mob-cat-scroll">
@@ -53,6 +40,19 @@ export default function Homepage() {
           ))}
         </div>
       </div>
+
+      {/* HERO */}
+      <section className="hero">
+        <div className="hero-content">
+          <span className="hero-eyebrow">Premium Badges · South Africa</span>
+          <h1>Badges That Make Your <em>Brand</em> Unforgettable</h1>
+          <p>Name badges, lapel pins, button badges and corporate gifts, crafted for businesses, schools, events and organisations across South Africa.</p>
+          <div className="hero-actions">
+            <Link to="/shop" className="btn-primary">Browse All Products</Link>
+            <Link to="/shop?category=name-badges" className="btn-secondary">Name Badges</Link>
+          </div>
+        </div>
+      </section>
 
       {/* FEATURED */}
       <section className="section">
