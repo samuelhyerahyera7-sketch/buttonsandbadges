@@ -761,3 +761,54 @@ button { cursor: pointer; font-family: var(--font-b); border: none; }
   .detail-layout { gap: 20px; }
   .detail-qty-row { flex-wrap: wrap; gap: 12px; }
 }
+
+/* =====================================================
+   MOBILE CATEGORY STRIP (phones only)
+   ===================================================== */
+
+.mob-cat-wrap { display: none; }
+
+@media (max-width: 768px) {
+  .mob-cat-wrap {
+    display: block;
+    background: var(--dark);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .mob-cat-scroll {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 10px;
+    padding: 12px 16px;
+  }
+  .mob-cat-scroll::-webkit-scrollbar { display: none; }
+  .mob-cat-tile {
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    width: 120px;
+    height: 120px;
+    border-radius: 12px;
+    background: var(--tile-bg, #1C2B3A);
+    display: flex;
+    align-items: flex-end;
+    padding: 12px;
+    text-decoration: none;
+    color: #fff;
+    font-family: var(--font-h);
+    font-size: 0.82rem;
+    font-weight: 700;
+    line-height: 1.25;
+    position: relative;
+    overflow: hidden;
+  }
+  .mob-cat-tile::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 55%);
+    pointer-events: none;
+  }
+  .mob-cat-tile span { position: relative; z-index: 1; }
+}
