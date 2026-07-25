@@ -11,7 +11,7 @@ const catCards = [
   { id: 'button-badges',  label: 'Button Badges',     sub: 'Full-colour pin-back badges',           bg: '#2C2A3A' },
   { id: 'corporate-gifts',label: 'Keyrings & Corporate Gifts', sub: 'Classic, resin, wood & bespoke metal keyrings', bg: '#1A1A1A' },
   { id: 'stickers',       label: 'Stickers & Labels', sub: 'Domed, vinyl & self-adhesive',         bg: '#2A1A2A' },
-  { id: 'signs',          label: 'Signs & Nameplates', sub: 'Door signs, desk plates & custom signage', bg: '#1A2A1A', span: 2 },
+  { id: 'signs',          label: 'Signs & Nameplates', sub: 'Door signs, desk plates & custom signage', bg: '#1A2A1A' },
 ];
 
 const features = [
@@ -69,7 +69,7 @@ export default function Homepage() {
                 key={cat.id}
                 to={`/shop?category=${cat.id}`}
                 className="cat-card"
-                style={{ '--cat-bg': cat.bg, gridColumn: cat.span ? `span ${cat.span}` : undefined } as React.CSSProperties}
+                style={{ '--cat-bg': cat.bg } as React.CSSProperties}
               >
                 <h3>{cat.label}</h3>
                 <p>{cat.sub}</p>

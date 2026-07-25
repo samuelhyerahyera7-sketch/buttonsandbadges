@@ -92,6 +92,7 @@ export default function Layout() {
     <CartProvider>
       <div className="site-root">
         <Nav />
+        <div className="sub-header-bar" />
         <main className="site-main">
           <Outlet />
         </main>
