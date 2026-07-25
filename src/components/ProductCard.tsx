@@ -30,7 +30,7 @@ export default function ProductCard({ product }: Props) {
         {product.isBestseller && !product.isNew && <span className="product-badge-best">Popular</span>}
       </div>
       <div className="product-info">
-        <div className="product-name">{product.name}{product.size ? ` (${product.size.replace(' — ', ' ')})` : ''}</div>
+        <div className="product-name">{product.name}{product.size ? ` ${product.size.replace(' — ', ' (')}` : ''}{product.size ? ')' : ''}</div>
         <div className="product-footer">
           <div className="product-price">
             from R{product.priceFrom.toFixed(2)}
