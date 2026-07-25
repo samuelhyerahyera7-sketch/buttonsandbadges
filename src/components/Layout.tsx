@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, Outlet, useLocation } from 'react-router';
 import { CartProvider, useCart } from '../context/CartContext';
-import { ShoppingBasket, Menu, X } from 'lucide-react';
+import { ShoppingCart, Menu, X } from 'lucide-react';
 
 function Nav() {
   const { totalItems } = useCart();
@@ -41,7 +41,7 @@ function Nav() {
 
         <div className="header-right">
           <Link to="/basket" className="cart-link">
-            <ShoppingBasket size={16} />
+            <ShoppingCart size={16} />
             <span className="cart-label">Basket</span>
             {totalItems > 0 && <span className="cart-badge">{totalItems}</span>}
           </Link>

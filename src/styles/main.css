@@ -6,19 +6,19 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:        #FAFAF8;
-  --bg2:       #EDF4F8;
+  --bg:        #FFFFFF;
+  --bg2:       #EBF6FB;
   --black:     #1A1A1A;
-  --dark:      #0F2233;
+  --dark:      #3A7A9C;
   --grey:      #6B6B6B;
-  --grey-lt:   #D8E8EE;
-  --blue:      #7AB5CC;
-  --blue-dk:   #4A8FA8;
-  --blue-pale: #B8D8E8;
+  --grey-lt:   #C8E4F0;
+  --blue:      #8ECAE6;
+  --blue-dk:   #5BA8C8;
+  --blue-pale: #D6EEF8;
   --white:     #FFFFFF;
   --radius:    12px;
-  --shadow:    0 2px 12px rgba(0,0,0,0.08);
-  --shadow-md: 0 4px 24px rgba(0,0,0,0.12);
+  --shadow:    0 2px 12px rgba(142,202,230,0.15);
+  --shadow-md: 0 4px 24px rgba(142,202,230,0.25);
   --trans:     0.2s ease;
   --font-h:    'Playfair Display', Georgia, serif;
   --font-b:    'Inter', system-ui, sans-serif;
@@ -85,17 +85,17 @@ button { cursor: pointer; font-family: var(--font-b); border: none; }
 
 .cart-link {
   display: flex; align-items: center; gap: 6px;
-  background: var(--dark); color: var(--white);
+  background: var(--blue); color: var(--white);
   text-decoration: none; padding: 8px 16px; border-radius: 6px;
   font-size: 0.875rem; font-weight: 600;
   transition: background var(--trans);
   position: relative;
 }
-.cart-link:hover { background: var(--blue); color: var(--white); }
+.cart-link:hover { background: var(--blue-dk); color: var(--white); }
 
 .cart-badge {
   position: absolute; top: -6px; right: -6px;
-  background: var(--blue); color: var(--white);
+  background: var(--blue-dk); color: var(--white);
   font-size: 0.7rem; font-weight: 700;
   width: 18px; height: 18px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
@@ -129,7 +129,7 @@ button { cursor: pointer; font-family: var(--font-b); border: none; }
    ===================================================== */
 
 .site-footer {
-  background: var(--black); color: rgba(255,255,255,0.7);
+  background: var(--blue-dk); color: rgba(255,255,255,0.85);
   text-align: center; padding: 48px 24px 32px;
 }
 
@@ -138,7 +138,7 @@ button { cursor: pointer; font-family: var(--font-b); border: none; }
   font-size: 1.4rem; font-weight: 700; color: var(--white);
   margin-bottom: 12px; display: block;
 }
-.footer-logo span { color: var(--blue); font-style: italic; }
+.footer-logo span { color: var(--blue-pale); font-style: italic; }
 
 .site-footer p { font-size: 0.875rem; margin-bottom: 4px; }
 
@@ -173,15 +173,16 @@ button { cursor: pointer; font-family: var(--font-b); border: none; }
    ===================================================== */
 
 .hero {
-  background: linear-gradient(135deg, #0F2233 0%, #071520 100%);
+  background: linear-gradient(135deg, #C8E8F5 0%, #EBF6FB 100%);
   padding: 100px 24px;
   text-align: center;
   position: relative; overflow: hidden;
+  border-bottom: 1px solid var(--grey-lt);
 }
 .hero::before {
   content: '';
   position: absolute; inset: 0;
-  background-image: radial-gradient(circle, rgba(122,181,204,0.06) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(142,202,230,0.3) 1px, transparent 1px);
   background-size: 28px 28px;
   pointer-events: none;
 }
@@ -190,7 +191,7 @@ button { cursor: pointer; font-family: var(--font-b); border: none; }
 
 .hero-eyebrow {
   display: inline-block;
-  background: var(--blue); color: var(--white);
+  background: var(--blue-dk); color: var(--white);
   font-size: 0.78rem; font-weight: 600;
   letter-spacing: 0.08em; text-transform: uppercase;
   padding: 6px 16px; border-radius: 100px; margin-bottom: 24px;
@@ -199,13 +200,13 @@ button { cursor: pointer; font-family: var(--font-b); border: none; }
 .hero h1 {
   font-family: var(--font-h);
   font-size: clamp(2rem, 5vw, 3.25rem);
-  color: var(--white); line-height: 1.2;
+  color: var(--black); line-height: 1.2;
   margin-bottom: 20px;
 }
-.hero h1 em { font-style: normal; color: var(--blue); }
+.hero h1 em { font-style: normal; color: var(--blue-dk); }
 
 .hero p {
-  color: rgba(255,255,255,0.7); font-size: 1.1rem;
+  color: var(--grey); font-size: 1.1rem;
   max-width: 540px; margin: 0 auto 36px;
 }
 
@@ -227,13 +228,13 @@ button { cursor: pointer; font-family: var(--font-b); border: none; }
 
 .btn-secondary {
   display: inline-flex; align-items: center; justify-content: center;
-  background: transparent; color: var(--white);
+  background: transparent; color: var(--black);
   text-decoration: none; padding: 14px 28px;
   border-radius: 8px; font-weight: 600; font-size: 0.95rem;
-  border: 2px solid rgba(255,255,255,0.3);
+  border: 2px solid var(--blue-dk);
   transition: border-color var(--trans), background var(--trans);
 }
-.btn-secondary:hover { border-color: var(--blue); background: rgba(122,181,204,0.1); }
+.btn-secondary:hover { border-color: var(--blue-dk); background: var(--blue-pale); }
 
 /* =====================================================
    PRODUCT GRID & CARDS
@@ -277,8 +278,8 @@ button { cursor: pointer; font-family: var(--font-b); border: none; }
   font-size: 0.7rem; font-weight: 700;
   padding: 3px 8px; border-radius: 4px;
 }
-.product-badge-new  { background: var(--blue); color: var(--white); }
-.product-badge-best { background: var(--dark); color: var(--white); }
+.product-badge-new  { background: var(--blue-dk); color: var(--white); }
+.product-badge-best { background: var(--blue); color: var(--white); }
 
 .product-info { padding: 18px 18px 20px; flex: 1; display: flex; flex-direction: column; gap: 6px; }
 
@@ -306,7 +307,7 @@ button { cursor: pointer; font-family: var(--font-b); border: none; }
 .product-minqty { display: block; font-size: 0.7rem; color: var(--grey); font-weight: 400; }
 
 .add-to-cart-btn {
-  background: var(--dark); color: var(--white);
+  background: var(--blue-dk); color: var(--white);
   padding: 8px 14px; border-radius: 6px;
   font-size: 0.8rem; font-weight: 600;
   transition: background var(--trans);
@@ -403,7 +404,7 @@ button { cursor: pointer; font-family: var(--font-b); border: none; }
    CONTACT STRIP
    ===================================================== */
 
-.contact-strip { background: var(--dark); padding: 64px 0; color: var(--white); }
+.contact-strip { background: var(--blue); padding: 64px 0; color: var(--white); }
 .contact-strip-inner {
   display: flex; align-items: center; justify-content: space-between;
   gap: 32px; flex-wrap: wrap;
@@ -428,11 +429,13 @@ button { cursor: pointer; font-family: var(--font-b); border: none; }
 .shop-page { min-height: 60vh; }
 
 .shop-hero {
-  background: var(--dark); padding: 60px 24px;
-  text-align: center; color: var(--white);
+  background: linear-gradient(135deg, #C8E8F5 0%, #EBF6FB 100%);
+  padding: 60px 24px;
+  text-align: center; color: var(--black);
+  border-bottom: 1px solid var(--grey-lt);
 }
 .shop-hero h1 { font-family: var(--font-h); font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 12px; }
-.shop-hero p { color: rgba(255,255,255,0.65); font-size: 1rem; }
+.shop-hero p { color: var(--grey); font-size: 1rem; }
 
 .shop-layout {
   max-width: 1200px; margin: 0 auto; padding: 40px 24px;
@@ -524,7 +527,7 @@ button { cursor: pointer; font-family: var(--font-b); border: none; }
 
 .detail-badge {
   display: inline-block;
-  background: var(--dark); color: var(--white);
+  background: var(--blue); color: var(--white);
   font-size: 0.75rem; font-weight: 600; padding: 4px 10px;
   border-radius: 4px; margin-bottom: 16px;
 }
