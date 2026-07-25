@@ -3,7 +3,6 @@ import { useParams, Link } from 'react-router';
 import { products } from '../data/products';
 import { useCart } from '../context/CartContext';
 import ProductCard from '../components/ProductCard';
-import ProductImage from '../components/ProductImage';
 
 export default function ProductDetail() {
   const { id } = useParams<{ id: string }>();
@@ -46,12 +45,7 @@ export default function ProductDetail() {
       <div className="detail-layout">
         {/* IMAGE */}
         <div className="detail-image-wrap">
-          <ProductImage
-            category={product.category}
-            size={product.size}
-            large
-            style={{ borderRadius: '8px', minHeight: '320px' }}
-          />
+          <img src={product.image} alt={product.name} />
         </div>
 
         {/* INFO */}

@@ -3,7 +3,6 @@ import type { MouseEvent } from 'react';
 import { Link } from 'react-router';
 import type { Product } from '../data/products';
 import { useCart } from '../context/CartContext';
-import ProductImage from './ProductImage';
 
 interface Props {
   product: Product;
@@ -23,7 +22,10 @@ export default function ProductCard({ product }: Props) {
   return (
     <Link to={`/product/${product.id}`} className="product-card">
       <div className="product-visual">
-        <ProductImage category={product.category} size={product.size} />
+        <img src={product.image} alt={product.name} loading="lazy" />
+        <span className="product-category-tag">
+          {product.category.replace(/-/g, ' ')}
+        </span>
         {product.isNew && <span className="product-badge-new">New</span>}
         {product.isBestseller && !product.isNew && <span className="product-badge-best">Popular</span>}
       </div>
