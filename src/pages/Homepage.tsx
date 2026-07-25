@@ -25,7 +25,7 @@ export default function Homepage() {
       {/* HERO */}
       <section className="hero">
         <div className="hero-content">
-          <span className="hero-eyebrow">Trusted · Premium</span>
+          <span className="hero-eyebrow">Premium Buttons &amp; Badges</span>
           <h1>Badges That Make Your <em>Brand</em> Unforgettable</h1>
           <p>Name badges, lapel pins, button badges &amp; corporate gifts crafted for businesses, schools, events, and organisations across South Africa.</p>
           <div className="hero-actions">
