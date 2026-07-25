@@ -4,7 +4,7 @@ import { products, categories, type Category } from '../data/products';
 import ProductCard from '../components/ProductCard';
 
 const sortOptions = [
-  { value: 'default', label: 'Default' },
+  { value: 'default', label: 'Sort' },
   { value: 'price-asc', label: 'Price: Low to High' },
   { value: 'price-desc', label: 'Price: High to Low' },
   { value: 'name-asc', label: 'Name A–Z' },

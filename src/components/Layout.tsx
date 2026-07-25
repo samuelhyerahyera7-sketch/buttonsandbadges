@@ -1,11 +1,21 @@
 import { useState } from 'react';
 import { Link, Outlet, useLocation } from 'react-router';
 import { CartProvider, useCart } from '../context/CartContext';
-import { ShoppingCart, Menu, X } from 'lucide-react';
+import { ShoppingCart, Menu, X, ChevronDown } from 'lucide-react';
+
+const categoryLinks = [
+  { to: '/shop?category=name-badges', label: 'Name Badges' },
+  { to: '/shop?category=lapels', label: 'Lapels' },
+  { to: '/shop?category=reusable-badges', label: 'Reusable Badges' },
+  { to: '/shop?category=button-badges', label: 'Button Badges' },
+  { to: '/shop?category=corporate-gifts', label: 'Keyrings & Gifts' },
+  { to: '/shop?category=signs', label: 'Signs & Nameplates' },
+];
 
 function Nav() {
   const { totalItems } = useCart();
   const [open, setOpen] = useState(false);
+  const [productsOpen, setProductsOpen] = useState(false);
   const location = useLocation();
 
   const links = [
@@ -53,11 +63,23 @@ function Nav() {
 
       {open && (
         <div className="mobile-nav">
-          {links.map((link) => (
-            <Link key={link.to} to={link.to} className="mobile-nav-link" onClick={() => setOpen(false)}>
-              {link.label}
-            </Link>
-          ))}
+          <Link to="/" className="mobile-nav-link" onClick={() => setOpen(false)}>Home</Link>
+          <button
+            className="mobile-nav-link mobile-nav-products-btn"
+            onClick={() => setProductsOpen(!productsOpen)}
+          >
+            Products <ChevronDown size={14} className={productsOpen ? 'chevron-open' : ''} />
+          </button>
+          {productsOpen && (
+            <div className="mobile-nav-sub">
+              <Link to="/shop" className="mobile-nav-sub-link" onClick={() => setOpen(false)}>All Products</Link>
+              {categoryLinks.map((link) => (
+                <Link key={link.to} to={link.to} className="mobile-nav-sub-link" onClick={() => setOpen(false)}>
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          )}
           <Link to="/basket" className="mobile-nav-link" onClick={() => setOpen(false)}>
             Basket {totalItems > 0 && `(${totalItems})`}
           </Link>

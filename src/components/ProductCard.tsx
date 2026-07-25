@@ -34,7 +34,7 @@ export default function ProductCard({ product }: Props) {
         <div className="product-footer">
           <div className="product-price">
             from R{product.priceFrom.toFixed(2)}
-            <small className="product-minqty">min {product.minQty} units</small>
+            <small className="product-minqty">discount from 10</small>
           </div>
           <button
             onClick={handleAdd}
