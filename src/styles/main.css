@@ -179,16 +179,15 @@ button { cursor: pointer; font-family: var(--font-b); border: none; }
    ===================================================== */
 
 .hero {
-  background: linear-gradient(135deg, #C8E8F5 0%, #EBF6FB 100%);
+  background: #2A4858;
   padding: 100px 24px;
   text-align: center;
   position: relative; overflow: hidden;
-  border-bottom: 1px solid var(--grey-lt);
 }
 .hero::before {
   content: '';
   position: absolute; inset: 0;
-  background-image: radial-gradient(circle, rgba(142,202,230,0.3) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
   background-size: 28px 28px;
   pointer-events: none;
 }
@@ -197,7 +196,7 @@ button { cursor: pointer; font-family: var(--font-b); border: none; }
 
 .hero-eyebrow {
   display: inline-block;
-  background: #2A4858; color: var(--white);
+  background: rgba(255,255,255,0.15); color: var(--white);
   font-size: 0.78rem; font-weight: 600;
   letter-spacing: 0.08em; text-transform: uppercase;
   padding: 6px 16px; border-radius: 100px; margin-bottom: 24px;
@@ -206,13 +205,13 @@ button { cursor: pointer; font-family: var(--font-b); border: none; }
 .hero h1 {
   font-family: var(--font-h);
   font-size: clamp(2rem, 5vw, 3.25rem);
-  color: var(--black); line-height: 1.2;
+  color: var(--white); line-height: 1.2;
   margin-bottom: 20px;
 }
-.hero h1 em { font-style: normal; color: var(--blue-dk); }
+.hero h1 em { font-style: normal; color: var(--blue); }
 
 .hero p {
-  color: var(--grey); font-size: 1.1rem;
+  color: rgba(255,255,255,0.75); font-size: 1.1rem;
   max-width: 540px; margin: 0 auto 36px;
 }
 
@@ -234,13 +233,13 @@ button { cursor: pointer; font-family: var(--font-b); border: none; }
 
 .btn-secondary {
   display: inline-flex; align-items: center; justify-content: center;
-  background: transparent; color: var(--black);
+  background: transparent; color: var(--white);
   text-decoration: none; padding: 14px 28px;
   border-radius: 8px; font-weight: 600; font-size: 0.95rem;
-  border: 2px solid var(--blue-dk);
+  border: 2px solid rgba(255,255,255,0.5);
   transition: border-color var(--trans), background var(--trans);
 }
-.btn-secondary:hover { border-color: var(--blue-dk); background: var(--blue-pale); }
+.btn-secondary:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
 
 /* =====================================================
    PRODUCT GRID & CARDS
