@@ -24,11 +24,14 @@
   --font-b:    'Inter', system-ui, sans-serif;
 }
 
+html { overflow-x: hidden; }
+
 body {
   font-family: var(--font-b);
   background: var(--bg);
   color: var(--black);
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 img { max-width: 100%; display: block; }
@@ -679,18 +682,24 @@ button { cursor: pointer; font-family: var(--font-b); border: none; }
   .order-summary { position: static; }
 }
 
-/* Tablet: shop sidebar becomes horizontal chip scroll */
+/* Tablet/mobile: shop sidebar becomes horizontal chip scroll */
 @media (max-width: 1024px) {
+  .shop-page { overflow-x: hidden; }
+  .shop-layout { overflow: hidden; }
+  .shop-main { min-width: 0; overflow-x: hidden; }
+
   .shop-sidebar {
     display: flex; flex-direction: row;
     flex-wrap: nowrap; overflow-x: auto;
     gap: 8px; padding-bottom: 4px;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    min-width: 0; max-width: 100%;
   }
   .shop-sidebar::-webkit-scrollbar { display: none; }
   .shop-sidebar h3 { display: none; }
   .filter-btn {
+    width: auto !important;
     white-space: nowrap; flex-shrink: 0;
     padding: 8px 14px; margin-bottom: 0;
     border: 1px solid var(--grey-lt);
@@ -739,7 +748,7 @@ button { cursor: pointer; font-family: var(--font-b); border: none; }
   .category-showcase-grid { grid-template-columns: 1fr; }
   .features-inner { grid-template-columns: 1fr 1fr; gap: 16px; }
   .hero-actions { flex-direction: column; align-items: stretch; }
-  .products-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px; }
+  .products-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .product-info { padding: 12px 12px 14px; }
   .product-name { font-size: 0.92rem; }
   .product-desc { font-size: 0.78rem; }
@@ -749,4 +758,6 @@ button { cursor: pointer; font-family: var(--font-b); border: none; }
   .detail-image-wrap { padding: 20px; }
   .detail-image-wrap img { max-height: 260px; }
   .order-summary { padding: 20px; }
+  .detail-layout { gap: 20px; }
+  .detail-qty-row { flex-wrap: wrap; gap: 12px; }
 }
