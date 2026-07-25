@@ -5,13 +5,12 @@ import ProductCard from '../components/ProductCard';
 const featured = products.filter((p) => p.isBestseller).slice(0, 4);
 
 const catCards = [
-  { id: 'name-badges',    label: 'Name Badges',      sub: 'Classic, metal, resin & wood',        bg: '#1C2B3A' },
-  { id: 'lapels',         label: 'Lapels',            sub: 'Classic, metal, bespoke & wood',       bg: '#2A4858' },
-  { id: 'reusable-badges',label: 'Reusable Badges',  sub: 'Write-on, wipe-off & insert-card',     bg: '#1A2E2A' },
-  { id: 'button-badges',  label: 'Button Badges',     sub: 'Full-colour pin-back badges',           bg: '#2C2A3A' },
-  { id: 'corporate-gifts',label: 'Keyrings & Corporate Gifts', sub: 'Classic, resin, wood & bespoke metal keyrings', bg: '#1A1A1A' },
-  { id: 'stickers',       label: 'Stickers & Labels', sub: 'Domed, vinyl & self-adhesive',         bg: '#2A1A2A' },
-  { id: 'signs',          label: 'Signs & Nameplates', sub: 'Door signs, desk plates & custom signage', bg: '#1A2A1A' },
+  { id: 'name-badges',    label: 'Name Badges',      sub: 'Classic, metal, resin & wood',                   bg: '#1C2B3A' },
+  { id: 'lapels',         label: 'Lapels',            sub: 'Classic, metal, bespoke & wood',                 bg: '#2A4858' },
+  { id: 'reusable-badges',label: 'Reusable Badges',  sub: 'Write-on, wipe-off & insert-card',               bg: '#1A2E2A' },
+  { id: 'button-badges',  label: 'Button Badges',     sub: 'Full-colour pin-back badges',                    bg: '#2C2A3A' },
+  { id: 'corporate-gifts',label: 'Keyrings & Gifts',  sub: 'Classic, resin, wood & bespoke metal keyrings', bg: '#1A1A1A' },
+  { id: 'signs',          label: 'Signs & Nameplates', sub: 'Door signs, desk plates & custom signage',      bg: '#1A2A1A' },
 ];
 
 const features = [
