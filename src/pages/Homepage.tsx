@@ -14,7 +14,7 @@ const catCards = [
 ];
 
 const features = [
-  { icon: '⭐', title: 'Premium Quality', desc: 'Laser engraving, die-cast metal, crystal resin — materials built to impress and last.' },
+  { icon: '⭐', title: 'Premium Quality', desc: 'Laser engraving, die-cast metal, crystal resin. Materials built to impress and last.' },
   { icon: '🚚', title: 'Nationwide Delivery', desc: 'Fast turnaround and reliable delivery to every corner of South Africa.' },
 ];
 
@@ -27,7 +27,7 @@ export default function Homepage() {
         <div className="hero-content">
           <span className="hero-eyebrow">Trusted · Premium</span>
           <h1>Badges That Make Your <em>Brand</em> Unforgettable</h1>
-          <p>Name badges, lapel pins, button badges &amp; corporate gifts — crafted for businesses, schools, events, and organisations across South Africa.</p>
+          <p>Name badges, lapel pins, button badges &amp; corporate gifts crafted for businesses, schools, events, and organisations across South Africa.</p>
           <div className="hero-actions">
             <Link to="/shop" className="btn-primary">Browse All Products</Link>
             <Link to="/shop?category=name-badges" className="btn-secondary">Name Badges</Link>
@@ -40,7 +40,7 @@ export default function Homepage() {
         <div className="section-inner">
           <div className="section-header">
             <h2>Popular Products</h2>
-            <p>Our most-loved ranges — trusted by corporates, schools, and events nationwide.</p>
+            <p>Our most-loved ranges, trusted by corporates, schools, and events nationwide.</p>
           </div>
           <div className="products-grid">
             {featured.map((product) => (
@@ -58,7 +58,7 @@ export default function Homepage() {
         <div className="section-inner">
           <div className="section-header">
             <h2>Shop by Category</h2>
-            <p>From classic acrylic to bespoke metal — find the perfect badge for your brand.</p>
+            <p>From classic acrylic to bespoke metal. Find the perfect badge for your brand.</p>
           </div>
           <div className="category-showcase-grid">
             {catCards.map((cat) => (
@@ -94,7 +94,7 @@ export default function Homepage() {
         <div className="section-inner">
           <div className="section-header">
             <h2>Our Full Range</h2>
-            <p>42 individual products across 8 categories — something for every brief.</p>
+            <p>42 individual products across 8 categories, something for every brief.</p>
           </div>
           <div className="range-grid">
             {categories.map((cat) => {

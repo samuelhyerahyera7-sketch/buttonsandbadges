@@ -47,7 +47,7 @@ export default function Shop() {
     <div className="shop-page">
       <div className="shop-hero">
         <h1>All Products</h1>
-        <p>Premium badges, lapels &amp; corporate gifts — custom branded for your organisation.</p>
+        <p>Premium badges, lapels &amp; corporate gifts, custom branded for your organisation.</p>
       </div>
 
       <div className="shop-layout">
