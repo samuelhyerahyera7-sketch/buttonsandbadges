@@ -73,7 +73,7 @@ export default function Homepage() {
       </section>
 
       {/* CATEGORY SHOWCASE */}
-      <section className="section" style={{ background: 'var(--bg2)', paddingTop: '60px', paddingBottom: '60px' }}>
+      <section className="section" style={{ background: '#F4F0E8', paddingTop: '60px', paddingBottom: '60px' }}>
         <div className="section-inner">
           <div className="section-header">
             <h2>Shop by Category</h2>
