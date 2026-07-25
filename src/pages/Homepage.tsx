@@ -14,8 +14,6 @@ const catCards = [
 ];
 
 const features = [
-  { icon: '✦', title: 'Custom Branding', desc: 'Upload your logo or artwork — every badge is made to your exact specifications.' },
-  { icon: '🏆', title: 'Trusted Since 1995', desc: 'Three decades of experience supplying businesses, schools, and events across South Africa.' },
   { icon: '⭐', title: 'Premium Quality', desc: 'Laser engraving, die-cast metal, crystal resin — materials built to impress and last.' },
   { icon: '🚚', title: 'Nationwide Delivery', desc: 'Fast turnaround and reliable delivery to every corner of South Africa.' },
 ];
@@ -113,26 +111,6 @@ export default function Homepage() {
         </div>
       </section>
 
-      {/* CONTACT STRIP */}
-      <section className="contact-strip">
-        <div className="section-inner">
-          <div className="contact-strip-inner">
-            <div>
-              <h2>Request a Quote</h2>
-              <p>Custom orders welcome · Fast turnaround · Nationwide delivery</p>
-            </div>
-            <div className="contact-details">
-              <a href="mailto:hello@buttonsandbadges.co.za" className="contact-btn">
-                Email Us
-              </a>
-              <div className="contact-info-list">
-                <p>hello@buttonsandbadges.co.za</p>
-                <p>Custom branding · Minimum quantities apply</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
     </div>
   );

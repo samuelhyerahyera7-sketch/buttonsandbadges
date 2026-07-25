@@ -72,15 +72,14 @@ function Footer() {
     <footer className="site-footer">
       <span className="footer-logo">Buttons <span>&amp;</span> Badges</span>
       <p>Premium name badges, lapels &amp; corporate gifts across South Africa.</p>
-      <div className="footer-links">
+      <div className="footer-links" style={{ marginTop: '12px' }}>
+        <a href="tel:0813756494">081 375 6494</a>
+        <a href="mailto:hello@buttonsandbadges.co.za">hello@buttonsandbadges.co.za</a>
+      </div>
+      <div className="footer-links" style={{ marginTop: '8px' }}>
         <Link to="/">Home</Link>
         <Link to="/shop">Products</Link>
         <Link to="/basket">Basket</Link>
-      </div>
-      <div className="footer-links" style={{ marginTop: '8px' }}>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms &amp; Conditions</a>
-        <a href="#">Contact Us</a>
       </div>
       <p style={{ marginTop: '16px' }}>&copy; {new Date().getFullYear()} Buttons &amp; Badges</p>
     </footer>

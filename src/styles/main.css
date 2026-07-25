@@ -73,7 +73,6 @@ button { cursor: pointer; font-family: var(--font-b); border: none; }
 }
 .site-logo span {
   color: var(--blue);
-  font-style: italic;
 }
 
 .site-nav { display: flex; gap: 32px; align-items: center; }
@@ -312,15 +311,15 @@ button { cursor: pointer; font-family: var(--font-b); border: none; }
 .product-minqty { display: block; font-size: 0.68rem; color: var(--grey); font-weight: 400; }
 
 .add-to-cart-btn {
-  background: #C9A227; color: #1A1A1A;
+  background: var(--blue-dk); color: var(--white);
   padding: 8px 10px; border-radius: 6px;
   font-size: 0.72rem; font-weight: 700;
   transition: background var(--trans);
   white-space: nowrap;
   flex-shrink: 0;
 }
-.add-to-cart-btn:hover { background: #B8880A; color: var(--white); }
-.add-to-cart-btn.added { background: #B8880A; color: var(--white); }
+.add-to-cart-btn:hover { background: var(--blue); }
+.add-to-cart-btn.added { background: var(--blue); }
 .add-to-cart-btn.large {
   padding: 14px 24px; font-size: 1rem;
   border-radius: 8px; width: 100%; margin-top: 8px;
