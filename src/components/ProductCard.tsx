@@ -31,6 +31,7 @@ export default function ProductCard({ product }: Props) {
       </div>
       <div className="product-info">
         <div className="product-name">{product.name}</div>
+        {product.size && <div className="product-size">{product.size}</div>}
         <div className="product-desc">{product.description}</div>
         {product.materials && (
           <div className="product-materials">

@@ -52,6 +52,7 @@ export default function ProductDetail() {
         <div className="detail-info">
           <span className="detail-category-tag">{product.category.replace(/-/g, ' ')}</span>
           <h1 className="detail-name">{product.name}</h1>
+          {product.size && <div className="detail-size">{product.size}</div>}
           {product.isBestseller && <div className="detail-badge">Popular Choice</div>}
           {product.isNew && <div className="detail-badge detail-badge-new">New Arrival</div>}
 

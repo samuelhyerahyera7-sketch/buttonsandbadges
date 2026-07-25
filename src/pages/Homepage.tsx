@@ -97,7 +97,7 @@ export default function Homepage() {
         <div className="section-inner">
           <div className="section-header">
             <h2>Our Full Range</h2>
-            <p>22 products across 8 categories — something for every brief.</p>
+            <p>42 individual products across 8 categories — something for every brief.</p>
           </div>
           <div className="range-grid">
             {categories.map((cat) => {
