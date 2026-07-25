@@ -197,7 +197,7 @@ button { cursor: pointer; font-family: var(--font-b); border: none; }
 
 .hero-eyebrow {
   display: inline-block;
-  background: var(--blue-dk); color: var(--white);
+  background: #2A4858; color: var(--white);
   font-size: 0.78rem; font-weight: 600;
   letter-spacing: 0.08em; text-transform: uppercase;
   padding: 6px 16px; border-radius: 100px; margin-bottom: 24px;
@@ -341,7 +341,7 @@ button { cursor: pointer; font-family: var(--font-b); border: none; }
 
 .category-showcase-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
 }
 
@@ -687,7 +687,7 @@ button { cursor: pointer; font-family: var(--font-b); border: none; }
    ===================================================== */
 
 @media (max-width: 1024px) {
-  .category-showcase-grid { grid-template-columns: repeat(2, 1fr); }
+  .category-showcase-grid { grid-template-columns: repeat(3, 1fr); }
   .features-inner { grid-template-columns: repeat(2, 1fr); }
   .detail-layout { grid-template-columns: 1fr; gap: 32px; }
   .basket-layout { grid-template-columns: 1fr; }
