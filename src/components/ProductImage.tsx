@@ -1,15 +1,15 @@
 import type { CSSProperties, ReactElement } from 'react';
 import type { Category } from '../data/products';
 
-const cfg: Record<Category, { accent: string; label: string }> = {
-  'name-badges':     { accent: '#4A8FA8', label: 'Name Badge' },
-  'reusable-badges': { accent: '#2A7A52', label: 'Reusable Badge' },
-  'button-badges':   { accent: '#7050B8', label: 'Button Badge' },
-  'lapels':          { accent: '#C9A84C', label: 'Lapel' },
-  'tags':            { accent: '#3A70B0', label: 'Conference Tag' },
-  'corporate-gifts': { accent: '#C9A84C', label: 'Corporate Gift' },
-  'stickers':        { accent: '#A03880', label: 'Sticker' },
-  'signs':           { accent: '#8A6030', label: 'Sign' },
+const cfg: Record<Category, { g0: string; g1: string; accent: string; label: string }> = {
+  'name-badges':     { g0: '#0B1E2E', g1: '#1A3D5C', accent: '#7AB5CC', label: 'Name Badge' },
+  'reusable-badges': { g0: '#0B2218', g1: '#17432E', accent: '#5BC49A', label: 'Reusable Badge' },
+  'button-badges':   { g0: '#160E28', g1: '#2E1A52', accent: '#AA88E0', label: 'Button Badge' },
+  'lapels':          { g0: '#16140A', g1: '#2C2A10', accent: '#D4AA40', label: 'Lapel' },
+  'tags':            { g0: '#0A1A2C', g1: '#163048', accent: '#6AAED4', label: 'Conference Tag' },
+  'corporate-gifts': { g0: '#0A0A08', g1: '#181812', accent: '#D4AA40', label: 'Corporate Gift' },
+  'stickers':        { g0: '#180E24', g1: '#2E1840', accent: '#CC7AB0', label: 'Sticker' },
+  'signs':           { g0: '#121008', g1: '#242018', accent: '#D4BA80', label: 'Sign' },
 };
 
 function NameBadgeIcon({ c }: { c: string }) {
@@ -125,17 +125,15 @@ interface Props {
 }
 
 export default function ProductImage({ category, size, style, className, large }: Props) {
-  const { accent } = cfg[category] ?? cfg['name-badges'];
-
-  const scale = large ? 1.8 : 1.3;
+  const { g0, g1, accent, label } = cfg[category] ?? cfg['name-badges'];
 
   const containerStyle: CSSProperties = {
-    background: '#F7F4EE',
+    background: `linear-gradient(140deg, ${g0} 0%, ${g1} 100%)`,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 0,
+    gap: large ? 20 : 14,
     position: 'relative',
     overflow: 'hidden',
     width: '100%',
@@ -143,35 +141,41 @@ export default function ProductImage({ category, size, style, className, large }
     ...style,
   };
 
-  const glowStyle: CSSProperties = {
+  const dotStyle: CSSProperties = {
     position: 'absolute',
-    width: large ? '200px' : '140px',
-    height: large ? '200px' : '140px',
-    borderRadius: '50%',
-    background: `radial-gradient(circle, ${accent}28 0%, transparent 70%)`,
+    inset: 0,
+    backgroundImage: `radial-gradient(circle, ${accent}22 1px, transparent 1px)`,
+    backgroundSize: '22px 22px',
     pointerEvents: 'none',
   };
 
   return (
     <div style={containerStyle} className={className}>
-      <div style={glowStyle} />
-      <div style={{ position: 'relative', transform: `scale(${scale})` }}>
+      <div style={dotStyle} />
+      <div style={{ position: 'relative' }}>
         {icons[category]?.(accent)}
       </div>
-      {size && (
+      <div style={{ textAlign: 'center', position: 'relative', padding: '0 12px' }}>
         <div style={{
-          position: 'absolute',
-          bottom: large ? 16 : 10,
-          left: 0, right: 0,
-          textAlign: 'center',
-          color: '#999',
-          fontSize: large ? '0.8rem' : '0.65rem',
-          fontWeight: 500,
-          letterSpacing: '0.04em',
+          color: 'rgba(255,255,255,0.9)',
+          fontSize: large ? '0.9rem' : '0.72rem',
+          fontWeight: 700,
+          letterSpacing: '0.07em',
+          textTransform: 'uppercase',
         }}>
-          {size}
+          {label}
         </div>
-      )}
+        {size && (
+          <div style={{
+            color: accent,
+            fontSize: large ? '0.82rem' : '0.67rem',
+            marginTop: 4,
+            fontWeight: 500,
+          }}>
+            {size}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
