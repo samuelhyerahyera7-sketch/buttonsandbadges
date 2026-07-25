@@ -25,22 +25,6 @@ export default function Homepage() {
   return (
     <div className="homepage">
 
-      {/* MOBILE CATEGORY STRIP — phones only */}
-      <div className="mob-cat-wrap">
-        <div className="mob-cat-scroll">
-          {catCards.map((cat) => (
-            <Link
-              key={cat.id}
-              to={`/shop?category=${cat.id}`}
-              className="mob-cat-tile"
-              style={{ '--tile-bg': cat.bg } as React.CSSProperties}
-            >
-              <span>{cat.label}</span>
-            </Link>
-          ))}
-        </div>
-      </div>
-
       {/* HERO */}
       <section className="hero">
         <div className="hero-content">

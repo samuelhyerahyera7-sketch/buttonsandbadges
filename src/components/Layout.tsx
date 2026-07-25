@@ -37,17 +37,18 @@ function Nav() {
               </Link>
             );
           })}
-
-          <Link to="/basket" className="cart-link">
-            <ShoppingBasket size={16} />
-            Basket
-            {totalItems > 0 && <span className="cart-badge">{totalItems}</span>}
-          </Link>
         </nav>
 
-        <button className="menu-toggle" onClick={() => setOpen(!open)} aria-label="Menu">
-          {open ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        <div className="header-right">
+          <Link to="/basket" className="cart-link">
+            <ShoppingBasket size={16} />
+            <span className="cart-label">Basket</span>
+            {totalItems > 0 && <span className="cart-badge">{totalItems}</span>}
+          </Link>
+          <button className="menu-toggle" onClick={() => setOpen(!open)} aria-label="Menu">
+            {open ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </div>
 
       {open && (
