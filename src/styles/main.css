@@ -726,7 +726,7 @@ button { cursor: pointer; font-family: var(--font-b); border: none; }
   .hero { padding: 64px 20px; }
   .section { padding: 48px 0; }
   .section-inner { padding: 0 16px; }
-  .category-showcase-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .category-showcase-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
   .cat-card { padding: 20px 16px; }
   .cat-card h3 { font-size: 1rem; }
   .contact-strip-inner { flex-direction: column; text-align: center; }
@@ -758,7 +758,7 @@ button { cursor: pointer; font-family: var(--font-b); border: none; }
 }
 
 @media (max-width: 480px) {
-  .category-showcase-grid { grid-template-columns: 1fr; }
+  .category-showcase-grid { grid-template-columns: repeat(2, 1fr); }
   .features-inner { grid-template-columns: 1fr 1fr; gap: 16px; }
   .hero-actions { flex-direction: column; align-items: stretch; }
   .products-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
