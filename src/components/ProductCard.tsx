@@ -30,14 +30,7 @@ export default function ProductCard({ product }: Props) {
         {product.isBestseller && !product.isNew && <span className="product-badge-best">Popular</span>}
       </div>
       <div className="product-info">
-        <div className="product-name">{product.name}</div>
-        {product.size && <div className="product-size">{product.size}</div>}
-        <div className="product-desc">{product.description}</div>
-        {product.materials && (
-          <div className="product-materials">
-            {product.materials.join(' · ')}
-          </div>
-        )}
+        <div className="product-name">{product.name}{product.size ? ` (${product.size})` : ''}</div>
         <div className="product-footer">
           <div className="product-price">
             from R{product.priceFrom.toFixed(2)}
