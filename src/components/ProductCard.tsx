@@ -42,7 +42,7 @@ export default function ProductCard({ product }: Props) {
             onClick={handleAdd}
             className={`add-to-cart-btn${added ? ' added' : ''}`}
           >
-            {added ? 'Added!' : 'Add to Basket'}
+            {added ? 'Added!' : 'Get a Quote'}
           </button>
         </div>
       </div>

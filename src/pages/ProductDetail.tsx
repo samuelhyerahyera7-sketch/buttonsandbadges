@@ -104,7 +104,7 @@ export default function ProductDetail() {
             onClick={handleAddToBasket}
             className={`add-to-cart-btn large${added ? ' added' : ''}`}
           >
-            {added ? '✓ Added to Basket' : 'Add to Basket'}
+            {added ? '✓ Added!' : 'Get a Quote'}
           </button>
 
           {added && (
