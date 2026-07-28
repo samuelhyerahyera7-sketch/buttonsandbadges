@@ -43,14 +43,14 @@ button { cursor: pointer; font-family: var(--font-b); border: none; }
    ===================================================== */
 
 .site-root { display: flex; flex-direction: column; min-height: 100vh; }
-.site-main { flex: 1; }
+.site-main { flex: 1; padding-top: 64px; }
 
 /* =====================================================
    HEADER / NAV
    ===================================================== */
 
 .site-header {
-  position: sticky; top: 0; z-index: 100;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   background: var(--white);
   border-bottom: none;
   box-shadow: var(--shadow);
