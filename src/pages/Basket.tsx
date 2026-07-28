@@ -47,37 +47,34 @@ export default function Basket() {
         <div className="basket-items">
           {items.map(({ product, quantity }) => (
             <div key={product.id} className="basket-item">
-              <Link to={`/product/${product.id}`} className="basket-item-img-wrap">
-                <img src={product.image} alt={product.name} className="basket-item-img" />
-              </Link>
-
-              <div className="basket-item-info">
-                <Link to={`/product/${product.id}`} className="basket-item-name">{product.name}</Link>
-                <div className="basket-item-cat">{product.category.replace(/-/g, ' ')}</div>
-                <div className="basket-item-price-unit">R{product.priceFrom.toFixed(2)} per unit</div>
-              </div>
-
-              <div className="basket-item-qty">
-                <div className="qty-control">
-                  <button onClick={() => updateQty(product.id, Math.max(product.minQty, quantity - product.minQty))}>−</button>
-                  <input
-                    type="number"
-                    value={quantity}
-                    min={product.minQty}
-                    onChange={(e) => updateQty(product.id, Math.max(product.minQty, Number(e.target.value)))}
-                  />
-                  <button onClick={() => updateQty(product.id, quantity + product.minQty)}>+</button>
+              <div className="basket-item-top-row">
+                <Link to={`/product/${product.id}`} className="basket-item-img-wrap">
+                  <img src={product.image} alt={product.name} className="basket-item-img" />
+                </Link>
+                <div className="basket-item-info">
+                  <Link to={`/product/${product.id}`} className="basket-item-name">{product.name}</Link>
+                  <div className="basket-item-cat">{product.category.replace(/-/g, ' ')}</div>
+                  <div className="basket-item-price-unit">R{product.priceFrom.toFixed(2)} per unit</div>
                 </div>
-                <div className="basket-item-min">min {product.minQty}</div>
               </div>
-
-              <div className="basket-item-subtotal">
-                R{(product.priceFrom * quantity).toFixed(2)}
+              <div className="basket-item-bottom-row">
+                <div className="basket-item-qty">
+                  <div className="qty-control">
+                    <button onClick={() => updateQty(product.id, Math.max(product.minQty, quantity - product.minQty))}>−</button>
+                    <input
+                      type="number"
+                      value={quantity}
+                      min={product.minQty}
+                      onChange={(e) => updateQty(product.id, Math.max(product.minQty, Number(e.target.value)))}
+                    />
+                    <button onClick={() => updateQty(product.id, quantity + product.minQty)}>+</button>
+                  </div>
+                </div>
+                <div className="basket-item-subtotal">R{(product.priceFrom * quantity).toFixed(2)}</div>
+                <button className="basket-item-remove" onClick={() => removeItem(product.id)} aria-label="Remove">
+                  <Trash2 size={16} />
+                </button>
               </div>
-
-              <button className="basket-item-remove" onClick={() => removeItem(product.id)} aria-label="Remove">
-                <Trash2 size={16} />
-              </button>
             </div>
           ))}
 

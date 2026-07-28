@@ -602,7 +602,7 @@ button { cursor: pointer; font-family: var(--font-b); border: none; }
    BASKET PAGE
    ===================================================== */
 
-.basket-page { max-width: 1200px; margin: 0 auto; padding: 40px 24px 80px; }
+.basket-page { max-width: 1200px; margin: 0 auto; padding: 40px 24px 80px; overflow-x: hidden; }
 
 .basket-header { margin-bottom: 36px; }
 .basket-header h1 { font-family: var(--font-h); font-size: 2rem; margin-bottom: 4px; }
@@ -760,18 +760,19 @@ button { cursor: pointer; font-family: var(--font-b); border: none; }
 /* Mobile: stack basket items */
 @media (max-width: 640px) {
   .basket-item {
-    display: grid;
-    grid-template-columns: 72px 1fr auto;
-    grid-template-rows: auto auto;
-    gap: 8px 12px;
-    align-items: start;
+    display: flex; flex-direction: column; gap: 10px;
+    padding: 14px;
   }
-  .basket-item-img-wrap { grid-column: 1; grid-row: 1 / 3; }
   .basket-item-img { width: 72px; height: 72px; }
-  .basket-item-info { grid-column: 2; grid-row: 1; }
-  .basket-item-qty { grid-column: 2; grid-row: 2; flex-direction: row; align-items: center; gap: 8px; }
-  .basket-item-subtotal { grid-column: 3; grid-row: 1; text-align: right; font-size: 0.95rem; }
-  .basket-item-remove { grid-column: 3; grid-row: 2; justify-self: end; }
+  .basket-item-top-row { display: flex; gap: 12px; align-items: flex-start; width: 100%; }
+  .basket-item-info { flex: 1; min-width: 0; }
+  .basket-item-bottom-row {
+    display: flex; align-items: center; justify-content: space-between; width: 100%;
+  }
+  .basket-item-qty { flex-direction: row; align-items: center; gap: 8px; }
+  .basket-item-subtotal { font-size: 0.95rem; }
+  .qty-control button { width: 28px; height: 28px; font-size: 0.85rem; }
+  .qty-control input { width: 44px; height: 28px; font-size: 0.82rem; }
 }
 
 @media (max-width: 480px) {
