@@ -1,23 +1,11 @@
-import { useState } from 'react';
-import type { MouseEvent } from 'react';
 import { Link } from 'react-router';
 import type { Product } from '../data/products';
-import { useCart } from '../context/CartContext';
 
 interface Props {
   product: Product;
 }
 
 export default function ProductCard({ product }: Props) {
-  const { addItem } = useCart();
-  const [added, setAdded] = useState(false);
-
-  function handleAdd(e: MouseEvent) {
-    e.preventDefault();
-    addItem(product, 1);
-    setAdded(true);
-    setTimeout(() => setAdded(false), 2000);
-  }
 
   return (
     <Link to={`/product/${product.id}`} className="product-card">
@@ -38,12 +26,13 @@ export default function ProductCard({ product }: Props) {
           <div className="product-price">
             R{product.priceFrom.toFixed(2)} <small className="product-minqty">per unit</small>
           </div>
-          <button
-            onClick={handleAdd}
-            className={`add-to-cart-btn${added ? ' added' : ''}`}
+          <a
+            href={`mailto:admin@cratesandboxes.co.za?subject=Quote Request: ${encodeURIComponent(product.name + (product.size ? ' ' + product.size : ''))}`}
+            className="add-to-cart-btn"
+            onClick={(e) => e.stopPropagation()}
           >
-            {added ? 'Added!' : 'Get a Quote'}
-          </button>
+            Get a Quote
+          </a>
         </div>
       </div>
     </Link>

@@ -100,18 +100,12 @@ export default function ProductDetail() {
             </div>
           </div>
 
-          <button
-            onClick={handleAddToBasket}
-            className={`add-to-cart-btn large${added ? ' added' : ''}`}
+          <a
+            href={`mailto:admin@cratesandboxes.co.za?subject=Quote Request: ${encodeURIComponent(product.name + (product.size ? ' ' + product.size : ''))}`}
+            className="add-to-cart-btn large"
           >
-            {added ? '✓ Added!' : 'Get a Quote'}
-          </button>
-
-          {added && (
-            <Link to="/basket" className="btn-secondary-dark" style={{ marginTop: '10px', display: 'block', textAlign: 'center' }}>
-              View Basket →
-            </Link>
-          )}
+            Get a Quote
+          </a>
 
           <p className="detail-note">
             Pricing shown is a starting guide — final pricing is confirmed at checkout based on quantity, material, and customisation.
