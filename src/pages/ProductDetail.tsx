@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router';
 import { products } from '../data/products';
 import { useCart } from '../context/CartContext';
@@ -10,6 +10,10 @@ export default function ProductDetail() {
   const { addItem } = useCart();
   const [qty, setQty] = useState(product?.minQty ?? 10);
   const [added, setAdded] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
 
   if (!product) {
     return (
