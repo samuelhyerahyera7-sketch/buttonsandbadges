@@ -3,15 +3,9 @@ import { Link } from 'react-router';
 import { useCart } from '../context/CartContext';
 import { Trash2 } from 'lucide-react';
 
-const DELIVERY = 150;
-
 export default function Basket() {
   const { items, removeItem, updateQty, subtotal, clear } = useCart();
   const [ordered, setOrdered] = useState(false);
-
-  const vat = subtotal * 0.15;
-  const delivery = items.length > 0 ? DELIVERY : 0;
-  const total = subtotal + vat + delivery;
 
   if (items.length === 0 && !ordered) {
     return (
@@ -60,14 +54,14 @@ export default function Basket() {
               <div className="basket-item-bottom-row">
                 <div className="basket-item-qty">
                   <div className="qty-control">
-                    <button onClick={() => updateQty(product.id, Math.max(product.minQty, quantity - product.minQty))}>−</button>
+                    <button onClick={() => updateQty(product.id, Math.max(1, quantity - 1))}>−</button>
                     <input
                       type="number"
                       value={quantity}
-                      min={product.minQty}
-                      onChange={(e) => updateQty(product.id, Math.max(product.minQty, Number(e.target.value)))}
+                      min={1}
+                      onChange={(e) => updateQty(product.id, Math.max(1, Number(e.target.value)))}
                     />
-                    <button onClick={() => updateQty(product.id, quantity + product.minQty)}>+</button>
+                    <button onClick={() => updateQty(product.id, quantity + 1)}>+</button>
                   </div>
                 </div>
                 <div className="basket-item-subtotal">R{(product.priceFrom * quantity).toFixed(2)}</div>
@@ -96,24 +90,9 @@ export default function Basket() {
 
           <div className="summary-divider" />
 
-          <div className="summary-line">
-            <span>Subtotal</span>
-            <span>R{subtotal.toFixed(2)}</span>
-          </div>
-          <div className="summary-line">
-            <span>VAT (15%)</span>
-            <span>R{vat.toFixed(2)}</span>
-          </div>
-          <div className="summary-line">
-            <span>Delivery</span>
-            <span>R{delivery.toFixed(2)}</span>
-          </div>
-
-          <div className="summary-divider" />
-
           <div className="summary-total">
             <span>Total</span>
-            <span>R{total.toFixed(2)}</span>
+            <span>R{subtotal.toFixed(2)}</span>
           </div>
 
           <p className="summary-note">

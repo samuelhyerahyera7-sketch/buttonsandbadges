@@ -8,7 +8,7 @@ export default function ProductDetail() {
   const { id } = useParams<{ id: string }>();
   const product = products.find((p) => p.id === id);
   const { addItem } = useCart();
-  const [qty, setQty] = useState(product?.minQty ?? 10);
+  const [qty, setQty] = useState(1);
   const [added, setAdded] = useState(false);
 
   useEffect(() => {
@@ -82,22 +82,21 @@ export default function ProductDetail() {
 
           <div className="detail-pricing">
             <div className="detail-price">
-              from R{product.priceFrom.toFixed(2)} <small>per unit</small>
+              R{product.priceFrom.toFixed(2)} <small>per unit</small>
             </div>
-            <div className="detail-minqty">Minimum order: {product.minQty} units</div>
           </div>
 
           <div className="detail-qty-row">
             <label>Quantity</label>
             <div className="qty-control">
-              <button onClick={() => setQty(Math.max(product.minQty, qty - product.minQty))}>−</button>
+              <button onClick={() => setQty(Math.max(1, qty - 1))}>−</button>
               <input
                 type="number"
                 value={qty}
-                min={product.minQty}
-                onChange={(e) => setQty(Math.max(product.minQty, Number(e.target.value)))}
+                min={1}
+                onChange={(e) => setQty(Math.max(1, Number(e.target.value)))}
               />
-              <button onClick={() => setQty(qty + product.minQty)}>+</button>
+              <button onClick={() => setQty(qty + 1)}>+</button>
             </div>
           </div>
 

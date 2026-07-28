@@ -14,7 +14,7 @@ export default function ProductCard({ product }: Props) {
 
   function handleAdd(e: MouseEvent) {
     e.preventDefault();
-    addItem(product, product.minQty);
+    addItem(product, 1);
     setAdded(true);
     setTimeout(() => setAdded(false), 2000);
   }
@@ -36,8 +36,7 @@ export default function ProductCard({ product }: Props) {
         )}
         <div className="product-footer">
           <div className="product-price">
-            from R{product.priceFrom.toFixed(2)}
-            <small className="product-minqty">discount from 10</small>
+            R{product.priceFrom.toFixed(2)} <small className="product-minqty">per unit</small>
           </div>
           <button
             onClick={handleAdd}
