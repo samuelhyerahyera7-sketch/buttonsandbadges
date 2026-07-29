@@ -80,12 +80,6 @@ export default function ProductDetail() {
             </div>
           )}
 
-          <div className="detail-pricing">
-            <div className="detail-price">
-              R{product.priceFrom.toFixed(2)} <small>per unit</small>
-            </div>
-          </div>
-
           <div className="detail-qty-row">
             <label>Quantity</label>
             <div className="qty-control">

@@ -23,9 +23,6 @@ export default function ProductCard({ product }: Props) {
           <div className="product-size">{product.size.replace(' — ', ' (') + ')'}</div>
         )}
         <div className="product-footer">
-          <div className="product-price">
-            R{product.priceFrom.toFixed(2)} <small className="product-minqty">per unit</small>
-          </div>
           <a
             href={`mailto:admin@cratesandboxes.co.za?subject=Quote Request: ${encodeURIComponent(product.name + (product.size ? ' ' + product.size : ''))}`}
             className="add-to-cart-btn"
